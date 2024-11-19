@@ -5,14 +5,14 @@ import java.util.List;
 import com.edubridge.airconditionersmanagement.dao.AirConditionerDao;
 import com.edubridge.airconditionersmanagement.model.AirConditioner;
 
-public class AirConditionerService implements AirConditionerServiceI {
+public  class AirConditionerService implements AirConditionerServiceI {
 	private AirConditionerDao dao;
 	
 	public AirConditionerService() {
 		dao = new AirConditionerDao();
 	}
 	
-
+   
 	@Override
 	public void addairconditioner(AirConditioner airconditioner) {
 		dao.addairconditioner(airconditioner);

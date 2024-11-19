@@ -4,12 +4,15 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "airconditioners")
 public class AirConditioner {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	private String brand;
 	private String model;
 	private Double price;
@@ -42,8 +45,8 @@ public class AirConditioner {
 	public Double getPowerRating() {
 		return powerRating;
 	}
-	public void setPowerRating(Double poweRating) {
-		this.powerRating = poweRating;
+	public void setPowerRating(Double powerRating) {
+		this.powerRating = powerRating;
 	}
 	@Override
 	public String toString() {

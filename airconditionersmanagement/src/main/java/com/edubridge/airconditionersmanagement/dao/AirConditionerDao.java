@@ -20,7 +20,7 @@ public class AirConditionerDao implements AirConditionerDaoI{
 			session.persist(ac);
 			tx = session.beginTransaction();
 			tx.commit();
-			System.out.println("new contact addedd!");
+			System.out.println("new airConditioner addedd!");
 		} catch (Exception e) {
 			tx.rollback();
 			e.printStackTrace();
@@ -35,17 +35,19 @@ public class AirConditionerDao implements AirConditionerDaoI{
 		List<AirConditioner> airconditioners = new ArrayList<AirConditioner>();
 		try (Session session = HibernateUtils.getSessionFactory().openSession()) {
               
-			String hql = "from AirConditioners";
+			String hql = "from AirConditioner";
 			Query query = session.createQuery(hql, AirConditioner.class);
 			airconditioners = query.list();
-
+		 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 		
-		return airconditioners;
+		return airconditioners ;
 	}
+
+
+
 
 
 

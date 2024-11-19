@@ -3,6 +3,9 @@ package com.edubridge.airconditionersmanagement;
 import java.util.List;
 import java.util.Scanner;
 
+import org.hibernate.Session;
+
+import com.edubridge.airconditionersmanagement.utils.HibernateUtils;
 import com.edubridge.airconditionersmanagement.model.AirConditioner;
 import com.edubridge.airconditionersmanagement.service.AirConditionerService;
 
@@ -19,7 +22,7 @@ public class AcMainApp {
 	
 	
 		  do {
-	            System.out.println("\nAir Conditioner Management");
+	            System.out.println("\nAir Conditioners Management");
 	            System.out.println("==============================");
 	            System.out.println("1. Add Air Conditioner");
 	            System.out.println("2. View All Air Conditioners");
@@ -59,14 +62,16 @@ public class AcMainApp {
 					System.out.println("View All AirConditioners");
 					System.out.println("-----------------");
 					List<AirConditioner> airconditioners = service.getAllAirConditioners();
-					if (airconditioners.isEmpty()) {
+					if (airconditioners.size() !=0) {
 						for (AirConditioner ac :airconditioners ) {
 							System.out.println(ac.getId() + "\t" + ac.getBrand() + "\t" + ac.getModel() + "\t" + ac.getPrice() +"\t" + ac.getPowerRating());
 						}
 					} else {
 						System.out.println("no airconditioners found");
 					}
+					
 					break;
+					
 
 				case 3:
 					System.out.println("Search airconditioner");
@@ -78,7 +83,7 @@ public class AcMainApp {
 						System.out.println("AiConditioner brand:"+ ac.getBrand());
 						System.out.println("AirConditioner model:"+ ac.getModel());
 						System.out.println("AirConditioner price: " + ac.getPrice());
-						System.out.println("AirConditioner poweRating:"+ ac.getPowerRating());
+						System.out.println("AirConditioner powerRating:"+ ac.getPowerRating());
 					} else {
 						System.out.println("No airconditioner found with id: " + id);
 					}
@@ -130,6 +135,7 @@ public class AcMainApp {
 					
 				case 0:
 					System.out.println("Bye!!!");
+					System.exit(0);
 					break;
 					
 				default:
@@ -139,7 +145,7 @@ public class AcMainApp {
 
 			} while (option != 0);
 		  
-		  in.close();
+		 
 		}
 
 
